@@ -24,13 +24,13 @@ def game_start():
         game.player_move(board)
         game.display_board(board)
         ret = game.is_win(board)
-        if ret != 'C':
+        if ret != 'Continue':
             break
         # 电脑走
         game.computer_move(board)
         game.display_board(board)
         ret = game.is_win(board)
-        if ret != 'C':
+        if ret != 'Continue':
             break
     # 判断输赢
     if ret == '*':
@@ -42,7 +42,7 @@ def game_start():
 
 
 def test():
-    while input:
+    while True:
         menu()
         option = int(input("请选择:>"))
         if option == 1:

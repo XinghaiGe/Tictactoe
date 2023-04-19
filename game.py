@@ -48,23 +48,30 @@ def computer_move(board):
 
 
 # 判断棋盘是否下满
-def is_full(board) -> int:
-    for i in range(0, 3):
-        for j in range(0, 3):
-            if board[i][j] == ' ':
-                return 0
-    return 1
+def is_full(board) -> bool:
+    for row in board:
+        for col in row:
+            if col == ' ':
+                return False
+    return True
 
 
 # 判断输赢
 def is_win(board) -> str:
+    # 连成一行
+    for i in range(0, 3):
+        if board[i][0] == board[i][1] and board[i][1] == board[i][2] and board[i][1] != ' ':
+            return board[i][1]
+    # 连成一列
     for j in range(0, 3):
         if board[0][j] == board[1][j] and board[1][j] == board[2][j] and board[1][j] != ' ':
             return board[1][j]
+    # 主对角线
     if board[0][0] == board[1][1] and board[1][1] == board[2][2] and board[1][1] != ' ':
         return board[1][1]
+    # 副对角线
     if board[2][0] == board[1][1] and board[1][1] == board[0][2] and board[0][2] != ' ':
         return board[1][1]
-    if 1 == is_full(board):
-        return 'Q'
-    return 'C'
+    if is_full(board):
+        return 'Quit'
+    return 'Continue'
