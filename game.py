@@ -37,7 +37,7 @@ def player_move(board):
         x = int(input())
         print("请输入纵坐标:>", end='')
         y = int(input())
-        if (1 <= x <= 3) & (1 <= y <= 3):
+        if (1 <= x <= 3) and (1 <= y <= 3):
             if board[x-1][y-1] == ' ':
                 board[x - 1][y - 1] = '*'
                 break
