@@ -15,14 +15,14 @@ import random
 
 # 显示棋盘
 def display_board(board):
-    for i in range(0, 3):
-        for j in range(0, 3):
+    for i in range(3):
+        for j in range(3):
             print(' ' + board[i][j] + ' ', end='')
             if j < 2:
                 print('|', end='')
         print()
         if i < 2:
-            for j in range(0, 3):
+            for j in range(3):
                 print("---", end='')
                 if j < 2:
                     print('|', end='')
